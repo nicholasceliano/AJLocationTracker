@@ -1,8 +1,32 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin:auto;
+  background-color:#CEECF5;
 }
 
 a {
   color: #00B7FF;
+}
+
+#header{
+	width:100%;
+	text-align:center;
+	
+}
+
+#header img{
+	display:inline-block;
+	height: 75px;
+}
+
+#header span{
+	font-size: 22px;
+}
+
+
+
+#trackingMap{
+	width: 98%;
+	height: 800px;
+	margin:auto;
 }
