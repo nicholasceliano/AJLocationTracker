@@ -55,9 +55,8 @@ io.on('connection', function(socket){
 			io.emit('loadInitialMap', markerList);
 		
 			socket.on('moveMarker', function(){
-				console.log('go');
-				markerList[2].lat = markerList[2].lat + 0.001;
-				io.emit('loadUsersPosition', markerList[2].ID, markerList[2].lat, markerList[2].lng);
+				markerList[0].lat = markerList[0].lat + 0.005;
+				io.emit('loadUsersPosition', markerList[0].ID, markerList[0].lat, markerList[0].lng);
 			});
 			break;
 		case '/Admin/Employees':
