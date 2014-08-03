@@ -3,8 +3,11 @@ extends layout
 block content
 	div(id='header')
 		img(id='imgLogo' src='images/logo.png')
-		span Employee GPS
+		div(id='titleText') Field Status Tracker
 	div(id='navBar')
-		a(href='/' style='padding:5px;') Tracking Map
-		a(href='/Admin' style='padding:5px;') Admin
+		a(href='/') Tracking Map
+		a(href='/Admin') Admin
 	div(id='trackingMap')
+	input(type='button', onclick='test();', value='Start Test Move')
+	div(id='footer')
+		img(id='imgFooter' src='images/logo_footer.png')

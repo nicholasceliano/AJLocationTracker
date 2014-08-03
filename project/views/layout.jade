@@ -2,101 +2,12 @@ doctype html
 html
 	head
 		title= title
+
 		script(type='text/javascript', src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDIUHVyHjABaBnF2h2yROpJCroqRSzZFXg')
 		script(type='text/javascript' src='/socket.io/socket.io.js')
-		script(type='text/javascript').
-			var socket = io();
-			var officeLocation = { "lat": null, "lng": null};
-			var map = null;
-			var markers = [];
-			
-			socket.on('loadInitialMap', function(lat, lng){
-				officeLocation.lat = lat;
-				officeLocation.lng = lng;
-				var mapProp = {
-					center: new google.maps.LatLng(officeLocation.lat, officeLocation.lng),
-					zoom:9,
-					mapTypeId:google.maps.MapTypeId.ROADMAP
-				};
-				map=new google.maps.Map(document.getElementById("trackingMap") ,mapProp);
-				
-				var m = new google.maps.Marker({
-					id: 'Office',
-					position: new google.maps.LatLng(officeLocation.lat, officeLocation.lng),
-					icon: 'images/office.png'
-				});
-				
-				markers.push(new google.maps.Marker({
-					id: 'Office',
-					position: new google.maps.LatLng(officeLocation.lat, officeLocation.lng),
-					icon: 'images/office.png'
-				}));
-				
-				//NEED TO MOVE THIS TO CODE BEHIND(DAN)
-				markers.push(new google.maps.Marker({
-					id: 'Dan',
-					position: new google.maps.LatLng(40.121593, -74.045063),
-					icon: 'images/Dan.png'
-				}));
-				
-				//NEED TO MOVE THIS TO CODE BEHIND(GENE)
-				markers.push(new google.maps.Marker({
-					id: 'Gene',
-					position: new google.maps.LatLng(40.102994, -74.087052),
-					icon: 'images/Gene.png'
-				}));
-				
-				//NEED TO MOVE THIS TO CODE BEHIND(GREG)
-				markers.push(new google.maps.Marker({
-					id: 'Greg',
-					position: new google.maps.LatLng(40.7008537, -74.7882376),
-					icon: 'images/Greg.png'
-				}));
-				
-				//NEED TO MOVE THIS TO CODE BEHIND(MICHAEL)
-				markers.push(new google.maps.Marker({
-					id: 'Michael',
-					position: new google.maps.LatLng(39.9770511, -74.3671074),
-					icon: 'images/Michael.png'
-				}));
-				
-				setAllMarkers();
-				
-				google.maps.event.addDomListener(window, 'load');
-			});
-			
-			socket.on('loadUsersPosition', function(empID, lat, lng){
-				
-				for (var i = 0; i < markers.length; i++){
-					if(markers[i].id == empID){
-						markers[i].position = new google.maps.LatLng(lat, lng);
-						setAllMarkers();
-						return;
-					}
-				}
-				
-				//Only if user wasn't Found
-				markers.push(new google.maps.Marker({
-					id: empID,
-					position: new google.maps.LatLng(lat, lng),
-					icon: 'images/westside.png'}));
-					
-				setAllMarkers();
-			});
-			
-			function setAllMarkers(){
-				for (var i = 0; i < markers.length; i++){
-					markers[i].setMap(map);
-				}
-			}
-			
-			function test(){
-				setTimeout (function() {
-					socket.emit('chat message', 'zzz');
-					test();
-				}, 5000);
-			}
+		script(type='text/javascript' src='/javascripts/mapsPolygons.js').
+		script(type='text/javascript' src='/javascripts/mapsSocketIO.js').
+		link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Open+Sans')
 		link(rel='stylesheet', href='/stylesheets/style.css')
 	body
 		block content
-		input(type='button', onclick='test();')

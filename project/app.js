@@ -1,35 +1,38 @@
 var express = require('express');
 var path = require('path');
 var favicon = require('static-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var routes = require('./routes/index');
-
-var lat = 40.6926501;
-//AddedBy Me
 var app = express();
+var routes = require('./routes/index');
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
+var gm = require('googlemaps');
+gm.config({key: 'AIzaSyDIUHVyHjABaBnF2h2yROpJCroqRSzZFXg'})
+
+//AddedBy Me
+
+var buildingList = [
+		{"ID": "AJ", "lat": 40.652632, "lng": -74.282895, "Img": "Images/office.png"},
+		{"ID": "WestSide", "lat": 40.692773, "lng": -74.22739, "Img": "Images/WestSide.png"}
+	];
+	
+var empList = [
+		{"ID": "Dan", "lat": 40.121593, "lng": -74.045063, "Img": "Images/Dan.png"},
+		{"ID": "Gene", "lat": 40.102994, "lng": -74.087052, "Img": "Images/Gene.png"},
+		{"ID": "Greg", "lat": 40.7008537, "lng": -74.7882376, "Img": "Images/Greg.png"},
+		{"ID": "Michael", "lat": 39.9770511, "lng": -74.3671074, "Img": "Images/Michael.png"}
+	];
+
 io.on('connection', function(socket){
 	console.log('connected');
-	var officeLat = 40.652632,
-		officeLong = -74.282895;	
-	io.emit('loadInitialMap', officeLat, officeLong);
+	io.emit('loadInitialMap', buildingList, empList);
 	
 	socket.on('chat message', function(msg){
-		console.log('message: ' + msg);
-		
-		lat = lat + 0.001;
-		
-		io.emit('loadUsersPosition', 'Mel', lat, -74.2273751,17);
+		empList[0].lat = empList[0].lat + 0.001;
+		io.emit('loadUsersPosition', empList[0].ID, empList[0].lat + .001, empList[0].lng);
 	});
 });
 server.listen(3000);
-
-var gm = require('googlemaps');
-var util = require('util');
-gm.config({key: 'AIzaSyDIUHVyHjABaBnF2h2yROpJCroqRSzZFXg'})
 
 //
 
@@ -38,35 +41,11 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 app.use(favicon());
-app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
-app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-
-
-//Added by me
-
-gm.reverseGeocode('41.850033,-87.6500523', function(err, data){
-	var lat = data.results[0].geometry.location.lat;
-	var lng = data.results[0].geometry.location.lng;
-	console.log(lat + ", "  + lng);
-	io.emit('disconnect', 'testzzz');
-	
-});
-
-gm.reverseGeocode(gm.checkAndConvertPoint([41.850033, -87.6500523]), function(err, data){
-
-
-});
-
-
-//
-
-
-
 
 
 app.use(function(req, res, next) {
