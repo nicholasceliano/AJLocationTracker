@@ -1,13 +1,28 @@
 extends layout
 
 block content
-	div(id='header')
-		img(id='imgLogo' src='images/logo.png')
-		div(id='titleText') Field Status Tracker
-	div(id='navBar')
-		a(href='/') Tracking Map
-		a(href='/Admin') Admin
+	script(type='text/javascript').
+		$('#index').addClass('selected');
+	
 	div(id='trackingMap')
-	input(type='button', onclick='test();', value='Start Test Move')
-	div(id='footer')
-		img(id='imgFooter' src='images/logo_footer.png')
+	div(id='mapLegend')
+		table
+			tr
+				td 
+					img(src='images/indicator_Employee.png')
+					div
+						input(type='checkbox' id='chkEmployees' checked=true onclick='ToggleMarkers("E")')
+						span Employees
+				td 
+					img(src='images/indicator_Job.png')
+					div
+						input(type='checkbox' id='chkJobs' checked=true onclick='ToggleMarkers("J")')
+						span Current Jobs
+				td 
+					img(src='images/indicator_Businesses.png')
+					div
+						input(type='checkbox' id='chkBusinesses' checked=true onclick='ToggleMarkers("B")')
+						span Businesses
+			tr
+				td(colspan='3')
+					input(type='button', onclick='test();', value='Start Test Move' style='float:left;')

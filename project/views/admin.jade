@@ -1,0 +1,12 @@
+extends layout
+
+block content
+	script(type='text/javascript').
+		$('#admin').addClass('selected');
+
+	div(id='navAdmin')
+		a(id='aEmployees' href='/Admin/Employees') Employees
+		a(id='aJobs' href='/Admin/Jobs') Jobs
+		a(id='aBusinesses' href='/Admin/Businesses') Businesses
+		a(id='aSettings' href='/Admin/Settings') Settings
+	block adminContent

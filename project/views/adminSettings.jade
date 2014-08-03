@@ -1,0 +1,10 @@
+extends admin
+
+block adminContent
+	script(type='text/javascript').
+		$('#aSettings').addClass('selected');
+	
+	div
+		span Employee Update Frequency: 
+		input(type='textbox' id='txtUpdateFreq' value='1')
+		span second(s)

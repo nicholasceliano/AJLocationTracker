@@ -5,9 +5,20 @@ html
 
 		script(type='text/javascript', src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDIUHVyHjABaBnF2h2yROpJCroqRSzZFXg')
 		script(type='text/javascript' src='/socket.io/socket.io.js')
+		script(src='//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
+		script(type='text/javascript' src='/javascripts/mapLegend.js').
 		script(type='text/javascript' src='/javascripts/mapsPolygons.js').
 		script(type='text/javascript' src='/javascripts/mapsSocketIO.js').
 		link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Open+Sans')
 		link(rel='stylesheet', href='/stylesheets/style.css')
+		link(rel='stylesheet', href='/stylesheets/navBar.css')
 	body
+		div(id='header')
+			img(id='imgLogo' src='../images/logo.png')
+			div(id='titleText') Field Status Tracker
+		div(id='navBar')
+			a(id='index' href='/') Tracking Map
+			a(id='admin' href='/Admin/Employees') Admin
 		block content
+		div(id='footer')
+			img(id='imgFooter' src='../images/logo_footer.png')

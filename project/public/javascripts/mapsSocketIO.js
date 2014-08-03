@@ -1,14 +1,14 @@
 var socket = io();
 var map = null;
 var markers = [];
+var infoWindow;
 
-socket.on('loadInitialMap', function(buildingList, empList){
-	var mapProp = {
+socket.on('loadInitialMap', function(markerList){
+	map=new google.maps.Map(document.getElementById("trackingMap") ,{
 		center: new google.maps.LatLng(40.65, -74.28),
 		zoom:9,
 		mapTypeId:google.maps.MapTypeId.ROADMAP
-	};
-	map=new google.maps.Map(document.getElementById("trackingMap") ,mapProp);
+	});
 	
 	new google.maps.Polygon({
                 paths: NJ,
@@ -19,33 +19,33 @@ socket.on('loadInitialMap', function(buildingList, empList){
                 fillOpacity: 0
             });
             
-	
-	for(var i = 0; i < buildingList.length; i++){
+	for(var i = 0; i < markerList.length; i++){
 		markers.push(new google.maps.Marker({
-			id: buildingList[i].ID,
-			position: new google.maps.LatLng(buildingList[i].lat, buildingList[i].lng),
-			icon: buildingList[i].Img
+			id: markerList[i].ID,
+			position: new google.maps.LatLng(markerList[i].lat, markerList[i].lng),
+			map:map,
+			type: markerList[i].Type,
+			html: '<div><table><tr><td>Name:</td><td>' + markerList[i].ID +'</td></tr></table></div>',
+			icon: markerList[i].Img
 		}));
+		
+		infoWindow = new google.maps.InfoWindow({
+			content: 'blank'
+		});
+		
+		google.maps.event.addListener(markers[i], 'click', function() {
+			infoWindow.markerID = this.id;
+			infoWindow.setContent(this.html);
+			infoWindow.open(map, this);
+		});
 	}
-	
-	for(var a = 0; a < empList.length; a++){
-		markers.push(new google.maps.Marker({
-			id: empList[a].ID,
-			position: new google.maps.LatLng(empList[a].lat, empList[a].lng),
-			icon: empList[a].Img
-		}));
-	}
-	
-	setAllMarkers();
 	google.maps.event.addDomListener(window, 'load');
 });
 
 socket.on('loadUsersPosition', function(empID, lat, lng){
-	
 	for (var i = 0; i < markers.length; i++){
-		if(markers[i].id == empID){
-			markers[i].position = new google.maps.LatLng(lat, lng);
-			setAllMarkers();
+		if(markers[i].id == empID){		
+			markers[i].setPosition(new google.maps.LatLng(lat, lng));
 			return;
 		}
 	}
@@ -54,20 +54,30 @@ socket.on('loadUsersPosition', function(empID, lat, lng){
 	markers.push(new google.maps.Marker({
 		id: empID,
 		position: new google.maps.LatLng(lat, lng),
+		map:map,
 		icon: 'images/westside.png'}));
-		
-	setAllMarkers();
 });
 
-function setAllMarkers(){
-	for (var i = 0; i < markers.length; i++){
-		markers[i].setMap(map);
+socket.on('passEmpInfo', function(empList){
+	function viewModel() {
+		var self = this;
+		self.emps = empList;
 	}
-}
+	ko.applyBindings(new viewModel());
+});
 
-function test(){
-	setTimeout (function() {
-		socket.emit('chat message', 'zzz');
-		test();
-	}, 3000);
-}
+socket.on('passJobInfo', function(jobList){
+	function viewModel() {
+		var self = this;
+		self.jobs = jobList;
+	}
+	ko.applyBindings(new viewModel());
+});
+
+socket.on('passBusinessInfo', function(businessList){
+	function viewModel() {
+		var self = this;
+		self.businesses = businessList;
+	}
+	ko.applyBindings(new viewModel());
+});

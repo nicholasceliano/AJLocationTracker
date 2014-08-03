@@ -1,0 +1,28 @@
+extends admin
+
+block adminContent
+	script(type='text/javascript').
+		$('#aJobs').addClass('selected');
+		
+	span Active
+	div 	
+		table
+			thead
+				tr
+					th
+						input(type='checkbox')
+					th 
+					th Name
+			tbody(data-bind='foreach: jobs')
+				tr
+					td
+						input(type='checkbox')
+					td
+						img(data-bind='attr: { src: "..//" + Img }')
+					td(data-bind='text: ID')
+					td
+						input(type='button', value='Edit')
+		
+	script(type='text/javascript' src='../javascripts/knockout.js')
+	script(type='text/javascript').
+		socket.emit('adminJobPageAccessed');

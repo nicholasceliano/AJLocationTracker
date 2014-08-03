@@ -1,0 +1,37 @@
+#navBar{
+	background: linear-gradient(to right, #006aa9 , transparent);
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+	margin-bottom:10px;
+}
+#navBar a, #navAdmin a{ 
+	color:#fff;
+	padding-left:5px;
+	padding-right:5px;
+	border-right:1px solid;
+	border-color:#fff;
+	text-decoration:none;
+}
+#navBar a:first-child{	
+	border-color:#006aa9;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+#navBar a:hover, #navBar .selected{
+	color:#006aa9;
+	background-color:#fff;
+}
+
+#navAdmin{
+	margin-bottom:10px;
+}
+#navAdmin a{
+	color:#006aa9;
+	margin-right: 10px;
+	border: 1px solid  #006aa9;
+	border-radius: 10px;
+}
+#navAdmin a:hover, #navAdmin .selected{
+	color:#fff;
+	background-color:#006aa9;
+}

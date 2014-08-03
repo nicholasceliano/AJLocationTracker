@@ -1,27 +1,24 @@
-body {
+body, html {
 	font-family: 'Open Sans', sans-serif;
 	margin:auto;
-	background-color:#CEECF5;
+	background: linear-gradient(to bottom, #CEECF5 , white);
+	height:100%;
+	width:99%;
 }
-
-a {
+a{
 	color: #00B7FF;
 }
 
-#header{
-	width:98%;
-	height:110px;
-	margin: auto;
-	border-bottom:1px solid #006aa9;
-}
 
+#header{
+	height:110px;
+}
 #header img{
 	position:fixed;
 	height: 100px;
 	padding-bottom:10px;
 	padding-right:10px;
 }
-
 #titleText{
 	color:#006aa9;
 	padding-top:25px;
@@ -32,39 +29,20 @@ a {
 
 
 
-#navBar{
-	width: 98%;
-	margin: auto;
-	border-bottom:1px solid #006aa9;
-	margin-bottom:10px;
-}
-
-#navBar a{
-	color:#006aa9;
-	padding-left:3px;
-	padding-right:3px;
-	border-right:1px solid #006aa9;
-	text-decoration:none;
-}
-
-#navBar a:hover{
-	color:#fff;
-	background-color:#006aa9;
-}
-
-
-
 #trackingMap{
-	width: 98%;
-	height: 800px;
-	margin:auto;
+	height: 900px;
 }
-
-
+#mapLegend{
+	background-color:white;
+	border-top: solid 1px #006aa9;
+}
+#mapLegend table{
+	width:100%;
+	text-align:center;
+}
 
 
 #footer{
-	width:98%;
-	margin:auto;
 	text-align:center;
+	padding-top:15px;
 }
