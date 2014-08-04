@@ -1,5 +1,5 @@
 body, html {
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Playfair Display', serif;
 	margin:auto;
 	background: linear-gradient(to bottom, #CEECF5 , white);
 	height:100%;
@@ -14,17 +14,17 @@ a{
 	height:110px;
 }
 #header img{
-	position:fixed;
+	position:absolute;
 	height: 100px;
 	padding-bottom:10px;
 	padding-right:10px;
 }
 #titleText{
-	color:#006aa9;
-	padding-top:25px;
-	text-align:center;
-	font-size: 40px;
-	font-weight:600;
+	color:#1d1e1b;
+	padding-top:11px;
+	margin-left: 172px;
+	font-size: 60px;
+	white-space:nowrap;
 }
 
 
