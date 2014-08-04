@@ -1,6 +1,5 @@
 Soon:
-Implement Typescript
-	 Clean up code
+Clean up code
 
 Add Employees to the admin Pane
 	- Finish Styling

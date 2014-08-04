@@ -1,0 +1,4 @@
+[
+    { "Type": "B", "ID": "AJ", "lat": 40.652632, "lng": -74.282895, "Img": "Images/office.png" },
+    { "Type": "B", "ID": "WestSide", "lat": 40.692773, "lng": -74.22739, "Img": "Images/WestSide.png" }
+]

@@ -7,15 +7,15 @@ html
 		script(type='text/javascript' src='/socket.io/socket.io.js')
 		script(src='//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
 		script(type='text/javascript' src='/javascripts/mapLegend.js').
-		script(type='text/javascript' src='/javascripts/mapsPolygons.js').
-		script(type='text/javascript' src='/javascripts/mapsSocketIO.js').
+		script(type='text/javascript' src='/javascripts/mapPolygons.js').
+		script(type='text/javascript' src='/javascripts/webIO.js').
 		link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Playfair+Display')
 		link(rel='stylesheet', href='/stylesheets/style.css')
 		link(rel='stylesheet', href='/stylesheets/navBar.css')
 	body
 		div(id='header')
 			img(id='imgLogo' src='../images/logo.png')
-			div(id='titleText') FIELD STATUS TRACKER
+			div(id='titleText') <!-- FIELD STATUS TRACKER -->
 		div(id='navBar')
 			a(id='index' href='/') Tracking Map
 			a(id='admin' href='/Admin/Employees') Admin

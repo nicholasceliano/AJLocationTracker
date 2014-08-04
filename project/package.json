@@ -1,21 +1,24 @@
 {
-  "name": "project",
+  "name": "LocationMonitor",
   "version": "0.0.1",
-  "private": true,
-  "scripts": {
-    "start": "node app.js"
-  },
-  "dependencies": {
-    "express": "~4.2.0",
-    "static-favicon": "~1.0.0",
-    "morgan": "~1.0.0",
-    "cookie-parser": "~1.0.1",
-    "body-parser": "~1.0.0",
-    "debug": "~0.7.4",
-    "jade": "~1.3.0"
-  },
   "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.0.2",
+    "debug": "^0.7.4",
+    "googlemaps": "^0.1.9",
+    "jade": "^1.3.1",
+    "socket.io": "^1.0.6",
+    "express": "^4.2.0",
+    "static-favicon": "^1.0.2",
+    "nodemon": "^1.2.1",
+    "typescript": "^1.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "nodemon app.js",
+	"prestart": "tsc @_ReferenceFiles/tsFileList.txt"
+  },
+  "config" : { "port" : "8080" },
   "author": "",
-  "license": "ISC",
-  "devDependencies": {}
+  "license": "ISC"
 }

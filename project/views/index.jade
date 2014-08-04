@@ -11,18 +11,18 @@ block content
 				td 
 					img(src='images/indicator_Employee.png')
 					div
-						input(type='checkbox' id='chkEmployees' checked=true onclick='ToggleMarkers("E")')
+						input(type='checkbox' id='chkEmployees' checked=true onclick='mapLegend.ToggleMarkers("E")')
 						span Employees
 				td 
 					img(src='images/indicator_Job.png')
 					div
-						input(type='checkbox' id='chkJobs' checked=true onclick='ToggleMarkers("J")')
+						input(type='checkbox' id='chkJobs' checked=true onclick='mapLegend.ToggleMarkers("J")')
 						span Current Jobs
 				td 
 					img(src='images/indicator_Businesses.png')
 					div
-						input(type='checkbox' id='chkBusinesses' checked=true onclick='ToggleMarkers("B")')
+						input(type='checkbox' id='chkBusinesses' checked=true onclick='mapLegend.ToggleMarkers("B")')
 						span Businesses
 			tr
 				td(colspan='3')
-					input(type='button', onclick='test();', value='Start Test Move' style='float:left;')
+					input(type='button', onclick='mapLegend.test();', value='Start Test Move' style='float:left;')

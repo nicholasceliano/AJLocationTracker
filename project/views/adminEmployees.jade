@@ -22,11 +22,8 @@ block adminContent
 					td(data-bind='text: ID')
 					td
 						input(type='button', value='Edit')
-		
-	
 	
 	span have active inactive add, inline remove edit and edit
 		
-	script(type='text/javascript' src='../javascripts/knockout.js')
 	script(type='text/javascript').
-		socket.emit('adminEmpPageAccessed');
+		webIO.socket.emit('adminEmpPageAccessed');

@@ -1,0 +1,6 @@
+[
+    { "Type": "E", "ID": "Dan", "lat": 40.121593, "lng": -74.045063, "Img": "Images/Dan.png" },
+    { "Type": "E", "ID": "Gene", "lat": 40.102994, "lng": -74.087052, "Img": "Images/Gene.png" },
+    { "Type": "E", "ID": "Greg", "lat": 40.7008537, "lng": -74.7882376, "Img": "Images/Greg.png" },
+    { "Type": "E", "ID": "Michael", "lat": 39.9770511, "lng": -74.3671074, "Img": "Images/Michael.png" }
+]

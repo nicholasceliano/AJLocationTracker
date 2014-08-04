@@ -1,21 +1,27 @@
-function test(){
-	setTimeout (function() {
-		socket.emit('moveMarker');
-		test();
-	}, 3000);
-}
+var mapLegend;
+(function (mapLegend) {
+    function test() {
+        setTimeout(function () {
+            webIO.socket.emit('moveMarker');
+            test();
+        }, 3000);
+    }
+    mapLegend.test = test;
 
-function ToggleMarkers(markerType){
-	for(var i = 0; i < markers.length; i++){
-		if (markers[i].type == markerType){
-			//if the box is checked set visible
-			if ($(event.target).is(':checked'))
-				markers[i].setVisible(true);
-			else{
-				markers[i].setVisible(false);
-				if(infoWindow.markerID == markers[i].id)
-					infoWindow.close();
-			}
-		}
-	}
-}
+    function ToggleMarkers(markerType) {
+        var mrkrs = webIO.markers;
+        for (var i = 0; i < mrkrs.length; i++) {
+            if (mrkrs[i].type == markerType) {
+                //if the box is checked set visible
+                if ($(event.target).is(':checked'))
+                    mrkrs[i].setVisible(true);
+                else {
+                    mrkrs[i].setVisible(false);
+                    if (webIO.infoWindow.markerID == mrkrs[i].id)
+                        webIO.infoWindow.close();
+                }
+            }
+        }
+    }
+    mapLegend.ToggleMarkers = ToggleMarkers;
+})(mapLegend || (mapLegend = {}));

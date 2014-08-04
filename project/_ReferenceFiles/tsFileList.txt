@@ -1,0 +1,4 @@
+app.ts
+public\javascripts\webIO.ts
+public\javascripts\mapLegend.ts
+public\javascripts\mapPolygons.ts

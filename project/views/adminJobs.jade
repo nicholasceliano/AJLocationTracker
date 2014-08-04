@@ -23,6 +23,5 @@ block adminContent
 					td
 						input(type='button', value='Edit')
 		
-	script(type='text/javascript' src='../javascripts/knockout.js')
 	script(type='text/javascript').
-		socket.emit('adminJobPageAccessed');
+		webIO.socket.emit('adminJobPageAccessed');
