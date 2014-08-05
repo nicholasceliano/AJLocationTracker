@@ -11,7 +11,10 @@
     "express": "^4.2.0",
     "static-favicon": "^1.0.2",
     "nodemon": "^1.2.1",
-    "typescript": "^1.0.1"
+    "typescript": "^1.0.1",
+	"jquery": "^2.1.1",
+	"jsdom": "^0.11.1"
+	
   },
   "devDependencies": {},
   "scripts": {
@@ -19,6 +22,6 @@
 	"prestart": "tsc @_ReferenceFiles/tsFileList.txt"
   },
   "config" : { "port" : "8080" },
-  "author": "",
+  "author": "Nicholas Celiano",
   "license": "ISC"
 }
