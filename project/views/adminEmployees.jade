@@ -12,14 +12,16 @@ block adminContent
 					th
 						input(type='checkbox')
 					th 
-					th Name
+					th First
+					th Last
 			tbody(data-bind='foreach: emps')
 				tr
 					td
 						input(type='checkbox')
 					td
-						img(data-bind='attr: { src: "..//" + Img }')
-					td(data-bind='text: ID')
+						img(data-bind='attr: { src: "..//" + img }')
+					td(data-bind='text: fName')
+					td(data-bind='text: lName')
 					td
 						input(type='button', value='Edit')
 	

@@ -5,6 +5,8 @@ Add Employees to the admin Pane
 	- Finish Styling
 	- Build in collapsible sections
 Fix favicon
+
+Build in Complete data for Employees
 	
 	
 Add Marker selector dropdown under the toggle and zoom in on the selection

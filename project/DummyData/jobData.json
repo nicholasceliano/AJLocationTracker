@@ -1,10 +1,10 @@
 [
-{ "Type": "J", "ID": "J1", "lat": 40.68, "lng": -74.33, "Img": "Images/Indicator_Job.png" },
-{ "Type": "J", "ID": "J2", "lat": 40.20, "lng": -74.56, "Img": "Images/Indicator_Job.png" },
-{ "Type": "J", "ID": "J3", "lat": 40.99, "lng": -74.46, "Img": "Images/Indicator_Job.png" },
-{ "Type": "J", "ID": "J4", "lat": 40.13, "lng": -74.09, "Img": "Images/Indicator_Job.png" },
-{ "Type": "J", "ID": "J5", "lat": 40.25, "lng": -74.36, "Img": "Images/Indicator_Job.png" },
-{ "Type": "J", "ID": "J6", "lat": 39.95, "lng": -74.46, "Img": "Images/Indicator_Job.png" },
-{ "Type": "J", "ID": "J7", "lat": 40.79, "lng": -74.40, "Img": "Images/Indicator_Job.png" },
-{ "Type": "J", "ID": "J8", "lat": 39.99, "lng": -74.13, "Img": "Images/Indicator_Job.png" }
+{ "Type": "J", "ID": "J1", "lat": 40.68, "lng": -74.33, "img": "Images/Indicator_Job.png", "name": "PH", "add": "aPH", "phoneNum": "1234567890" },
+{ "Type": "J", "ID": "J2", "lat": 40.20, "lng": -74.56, "img": "Images/Indicator_Job.png", "name": "PH", "add": "aPH", "phoneNum": "1234567890" },
+{ "Type": "J", "ID": "J3", "lat": 40.99, "lng": -74.46, "img": "Images/Indicator_Job.png", "name": "PH", "add": "aPH", "phoneNum": "1234567890" },
+{ "Type": "J", "ID": "J4", "lat": 40.13, "lng": -74.09, "img": "Images/Indicator_Job.png", "name": "PH", "add": "aPH", "phoneNum": "1234567890" },
+{ "Type": "J", "ID": "J5", "lat": 40.25, "lng": -74.36, "img": "Images/Indicator_Job.png", "name": "PH", "add": "aPH", "phoneNum": "1234567890" },
+{ "Type": "J", "ID": "J6", "lat": 39.95, "lng": -74.46, "img": "Images/Indicator_Job.png", "name": "PH", "add": "aPH", "phoneNum": "1234567890" },
+{ "Type": "J", "ID": "J7", "lat": 40.79, "lng": -74.40, "img": "Images/Indicator_Job.png", "name": "PH", "add": "aPH", "phoneNum": "1234567890" },
+{ "Type": "J", "ID": "J8", "lat": 39.99, "lng": -74.13, "img": "Images/Indicator_Job.png", "name": "PH", "add": "aPH", "phoneNum": "1234567890" }
 ]

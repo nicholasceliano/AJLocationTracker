@@ -1,6 +1,6 @@
 [
-    { "Type": "E", "ID": "Dan", "lat": 40.121593, "lng": -74.045063, "Img": "Images/Dan.png" },
-    { "Type": "E", "ID": "Gene", "lat": 40.102994, "lng": -74.087052, "Img": "Images/Gene.png" },
-    { "Type": "E", "ID": "Greg", "lat": 40.7008537, "lng": -74.7882376, "Img": "Images/Greg.png" },
-    { "Type": "E", "ID": "Michael", "lat": 39.9770511, "lng": -74.3671074, "Img": "Images/Michael.png" }
+    { "ID": "E1", "lat": 40.121593, "lng": -74.045063, "img": "Images/Dan.png", "fName": "Dan", "lName": "Celiano" , "add" : "44 Wyckoff Ave. Manasquan, NJ 08736", "phoneNum" : "(908)347-5858", "phoneID" : "AJXIAJ83193AS" },
+    { "ID": "E2", "lat": 40.102994, "lng": -74.087052, "img": "Images/Gene.png", "fName": "Gene", "lName": "Celiano" , "add" : "2623 River Road Manasquan, NJ 08736", "phoneNum" : "(908)347-0091", "phoneID" : "KHOEIR83KRK930" },
+    { "ID": "E3", "lat": 40.7008537, "lng": -74.7882376, "img": "Images/Greg.png", "fName": "Greg", "lName": "Celiano" , "add" : "1234 Main St. Tewkesberry, NJ 16579", "phoneNum" : "(908)347-1069", "phoneID" : "IRMVGJ389GM289" },
+    { "ID": "E4", "lat": 39.9770511, "lng": -74.3671074, "img": "Images/Michael.png", "fName": "Michael", "lName": "Celiano" , "add" : "9 Birch Lane Colts Neck, NJ 07722", "phoneNum" : "(908)347-1582", "phoneID" : "LROTLQP013KEM1" }
 ]

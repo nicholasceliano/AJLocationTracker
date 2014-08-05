@@ -27,9 +27,8 @@ var webIO;
                 id: markerList[i].ID,
                 position: new google.maps.LatLng(markerList[i].lat, markerList[i].lng),
                 map: webIO.map,
-                type: markerList[i].Type,
-                html: '<div><table><tr><td>Name:</td><td>' + markerList[i].ID + '</td></tr></table></div>',
-                icon: markerList[i].Img
+                html: '<div><table><tr><td>Name:</td><td>' + markerList[i].name + '</td>' + '<td>Address:</td><td>' + markerList[i].add + '</td>' + '<td>Phone #:</td><td>' + markerList[i].phoneNum + '</td></tr></table></div>',
+                icon: markerList[i].img
             }));
 
             webIO.infoWindow = new google.maps.InfoWindow({
