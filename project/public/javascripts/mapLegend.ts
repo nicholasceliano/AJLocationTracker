@@ -6,19 +6,17 @@ module mapLegend {
 		}, 3000);
 	}
 
-	export function ToggleMarkers(markerType: any){
-		var mrkrs = webIO.markers;
-		for(var i = 0; i < mrkrs.length; i++){
-			if (mrkrs[i].type == markerType){
-				//if the box is checked set visible
+	export function ToggleMarkers(markerType: string){
+		$.each(webIO.markers, function(i, obj){
+			if(obj.id.indexOf(markerType) >= 0){
 				if ($(event.target).is(':checked'))
-					mrkrs[i].setVisible(true);
+						obj.setVisible(true);
 				else{
-					mrkrs[i].setVisible(false);
-					if(webIO.infoWindow.markerID == mrkrs[i].id)
+					obj.setVisible(false);
+					if(webIO.infoWindow.markerID == obj.id)
 						webIO.infoWindow.close();
 				}
 			}
-		}
+		});
 	}
 }

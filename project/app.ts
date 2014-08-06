@@ -53,21 +53,19 @@ module sMain {
 		}
 	});
 	server.listen(3000);
-	
 	console.log('server connected');
 
 	// view engine setup
 	app.set('views', path.join(__dirname, 'views'));
 	app.set('view engine', 'jade');
-
+		
 	app.use(favicon());
 	app.use(bodyParser.json());
-	app.use(bodyParser.urlencoded());
+	app.use(bodyParser.urlencoded({extended: true}));
 	app.use(express.static(path.join(__dirname, 'public')));
 	app.use('/', routes);
 
 	app.use(function (req, res, next) {
-		console.log(req);
 		var err = new Error('Not Found - 404');
 		next(err);
 	});

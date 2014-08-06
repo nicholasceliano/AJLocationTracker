@@ -14,6 +14,8 @@ Add Marker selector dropdown under the toggle and zoom in on the selection
 	
 Build in a trail for past 5 locations?
 
+Config Variables
+	- Google Key
 
 Later:
 Set Up Database

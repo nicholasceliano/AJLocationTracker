@@ -18,8 +18,6 @@ var empList = loadData.EmpDataLoad();
 var jobList = loadData.JobDataLoad();
 var businessList = loadData.BusinessDataLoad();
 
-console.log(empList);
-
 var sMain;
 (function (sMain) {
     sIO.on('connection', function (socket) {
@@ -55,7 +53,6 @@ var sMain;
         }
     });
     server.listen(3000);
-
     console.log('server connected');
 
     // view engine setup
@@ -64,12 +61,11 @@ var sMain;
 
     app.use(favicon());
     app.use(bodyParser.json());
-    app.use(bodyParser.urlencoded());
+    app.use(bodyParser.urlencoded({ extended: true }));
     app.use(express.static(path.join(__dirname, 'public')));
     app.use('/', routes);
 
     app.use(function (req, res, next) {
-        console.log(req);
         var err = new Error('Not Found - 404');
         next(err);
     });
