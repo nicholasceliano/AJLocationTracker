@@ -8,21 +8,31 @@ block content
 	div(id='mapLegend')
 		table
 			tr
-				td 
+				td
 					img(src='_release/indicator_Employee.png')
 					div
 						input(type='checkbox' id='chkEmployees' checked=true onclick='mapLegend.ToggleMarkers("E")')
 						span Employees
-				td 
+				td
 					img(src='_release/indicator_Job.png')
 					div
 						input(type='checkbox' id='chkJobs' checked=true onclick='mapLegend.ToggleMarkers("J")')
 						span Current Jobs
-				td 
+				td
 					img(src='_release/indicator_Businesses.png')
 					div
 						input(type='checkbox' id='chkBusinesses' checked=true onclick='mapLegend.ToggleMarkers("B")')
 						span Businesses
+			tr
+				td
+					select(id='ddlEmployees' onchange='mapLegend.FocusMapSelection()')
+						option(value='0') -
+				td
+					select(id='ddlJobs' onchange='mapLegend.FocusMapSelection()')
+						option(value='0') -
+				td
+					select(id='ddlBusinesses' onchange='mapLegend.FocusMapSelection()')
+						option(value='0') -
 			tr
 				td(colspan='3')
 					input(type='button', onclick='mapLegend.test();', value='Start Test Move' style='float:left;')

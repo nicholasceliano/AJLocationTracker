@@ -4,12 +4,12 @@
 ///<reference path='typings/socket.io.d.ts' />
 var webIO;
 (function (webIO) {
-    webIO.socket = io(), webIO.map = null, webIO.markers = [], webIO.infoWindow;
+    webIO.socket = io(), webIO.map = null, webIO.markers = [], webIO.infoWindow, webIO.mapZoomDefault = 9, webIO.mapCenterDefault = new google.maps.LatLng(40.65, -74.28);
 
     webIO.socket.on('loadInitialMap', function (markerList) {
         webIO.map = new google.maps.Map(document.getElementById("trackingMap"), {
-            center: new google.maps.LatLng(40.65, -74.28),
-            zoom: 9,
+            center: webIO.mapCenterDefault,
+            zoom: webIO.mapZoomDefault,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         });
 
@@ -22,42 +22,47 @@ var webIO;
             fillOpacity: 0
         });
 
-        for (var i = 0; i < markerList.length; i++) {
+        $.each(markerList, function (i, obj) {
             webIO.markers.push(new google.maps.Marker({
-                id: markerList[i].ID,
-                position: new google.maps.LatLng(markerList[i].lat, markerList[i].lng),
+                id: obj.ID,
+                position: new google.maps.LatLng(obj.lat, obj.lng),
                 map: webIO.map,
-                html: '<div><table><tr><td>Name:</td><td>' + markerList[i].name + '</td>' + '<td>Address:</td><td>' + markerList[i].add + '</td>' + '<td>Phone #:</td><td>' + markerList[i].phoneNum + '</td></tr></table></div>',
-                icon: markerList[i].img
+                html: '<div><table><tr><td>Name:</td><td>' + obj.name + '</td>' + '<td>Address:</td><td>' + obj.add + '</td>' + '<td>Phone #:</td><td>' + obj.phoneNum + '</td></tr></table></div>',
+                icon: obj.img
             }));
+
+            switch (obj.ID.charAt(0)) {
+                case 'E':
+                    helperFunctions.addDDLValue('ddlEmployees', obj.ID, obj.name);
+                    break;
+                case 'J':
+                    helperFunctions.addDDLValue('ddlJobs', obj.ID, obj.name);
+                    break;
+                case 'B':
+                    helperFunctions.addDDLValue('ddlBusinesses', obj.ID, obj.name);
+                    break;
+            }
 
             webIO.infoWindow = new google.maps.InfoWindow({
                 content: 'blank'
             });
 
-            google.maps.event.addListener(webIO.markers[i], 'click', function () {
+            google.maps.event.addListener(obj, 'click', function () {
                 webIO.infoWindow.markerID = this.id;
                 webIO.infoWindow.setContent(this.html);
                 webIO.infoWindow.open(webIO.map, this);
             });
-        }
+        });
         google.maps.event.addDomListener(window, 'load', null);
     });
 
     webIO.socket.on('loadUsersPosition', function (empID, lat, lng) {
-        for (var i = 0; i < webIO.markers.length; i++) {
-            if (webIO.markers[i].id == empID) {
-                webIO.markers[i].setPosition(new google.maps.LatLng(lat, lng));
-                return;
+        $.each(webIO.markers, function (i, obj) {
+            if (obj.id == empID) {
+                obj.setPosition(new google.maps.LatLng(lat, lng));
+                return false;
             }
-        }
-
-        //Only if user wasn't Found
-        webIO.markers.push(new google.maps.Marker({
-            id: empID,
-            position: new google.maps.LatLng(lat, lng),
-            map: webIO.map,
-            icon: 'images/westside.png' }));
+        });
     });
 
     webIO.socket.on('passEmpInfo', function (empList) {

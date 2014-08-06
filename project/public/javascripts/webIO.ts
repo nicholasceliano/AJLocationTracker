@@ -7,12 +7,14 @@ module webIO {
 	export var socket = io(),
 		map = null,
 		markers = [],
-		infoWindow;
+		infoWindow,
+		mapZoomDefault = 9,
+		mapCenterDefault = new google.maps.LatLng(40.65, -74.28);
 
 	socket.on('loadInitialMap', function(markerList){
 		map=new google.maps.Map(document.getElementById("trackingMap") ,{
-			center: new google.maps.LatLng(40.65, -74.28),
-			zoom:9,
+			center: mapCenterDefault,
+			zoom:mapZoomDefault,
 			mapTypeId:google.maps.MapTypeId.ROADMAP
 		});
 		
@@ -25,44 +27,50 @@ module webIO {
 					fillOpacity: 0
 				});
 				
-		for(var i = 0; i < markerList.length; i++){
+		$.each(markerList, function(i, obj){
 			markers.push(new google.maps.Marker({
-				id: markerList[i].ID,
-				position: new google.maps.LatLng(markerList[i].lat, markerList[i].lng),
+				id: obj.ID,
+				position: new google.maps.LatLng(obj.lat, obj.lng),
 				map:map,
-				html: '<div><table><tr><td>Name:</td><td>' + markerList[i].name + '</td>' +
-										'<td>Address:</td><td>' + markerList[i].add +'</td>' +
-										'<td>Phone #:</td><td>' + markerList[i].phoneNum +'</td></tr></table></div>',
-				icon: markerList[i].img
+				html: '<div><table><tr><td>Name:</td><td>' + obj.name + '</td>' +
+										'<td>Address:</td><td>' + obj.add +'</td>' +
+										'<td>Phone #:</td><td>' + obj.phoneNum +'</td></tr></table></div>',
+				icon: obj.img
 			}));
+			
+			//Populate DropDownList Values
+			switch (obj.ID.charAt(0)) {
+				case 'E':
+					helperFunctions.addDDLValue('ddlEmployees', obj.ID,obj.name);
+				break;
+				case 'J':
+					helperFunctions.addDDLValue('ddlJobs', obj.ID,obj.name);
+				break;
+				case 'B':
+					helperFunctions.addDDLValue('ddlBusinesses', obj.ID,obj.name);
+				break;
+			}
 			
 			infoWindow = new google.maps.InfoWindow({
 				content: 'blank'
 			});
 			
-			google.maps.event.addListener(markers[i], 'click', function() {
+			google.maps.event.addListener(obj, 'click', function() {
 				infoWindow.markerID = this.id;
 				infoWindow.setContent(this.html);
 				infoWindow.open(map, this);
 			});
-		}
+		});
 		google.maps.event.addDomListener(window, 'load', null);
 	});
 
 	socket.on('loadUsersPosition', function(empID, lat, lng){
-		for (var i = 0; i < markers.length; i++){
-			if(markers[i].id == empID){		
-				markers[i].setPosition(new google.maps.LatLng(lat, lng));
-				return;
+		$.each(markers, function(i, obj) {
+			if(obj.id == empID){		
+				obj.setPosition(new google.maps.LatLng(lat, lng));
+				return false;
 			}
-		}
-		
-		//Only if user wasn't Found
-		markers.push(new google.maps.Marker({
-			id: empID,
-			position: new google.maps.LatLng(lat, lng),
-			map:map,
-			icon: 'images/westside.png'}));
+		});
 	});
 
 	socket.on('passEmpInfo', function(empList){

@@ -41,6 +41,13 @@ a{
 	text-align:center;
 }
 
+#mapLegend table td{
+	width:33%;
+}
+
+#mapLegend table td select{
+	width:100px;
+}
 
 #footer{
 	text-align:center;

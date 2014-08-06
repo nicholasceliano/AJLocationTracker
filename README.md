@@ -1,5 +1,6 @@
 Soon:
-Clean up code
+
+- Complete pop up on marker click
 
 Add Employees to the admin Pane
 	- Finish Styling
@@ -8,9 +9,6 @@ Fix favicon
 
 Build in Complete data for Employees
 	
-	
-Add Marker selector dropdown under the toggle and zoom in on the selection
-	--add clear button also. this will restore the view to original
 	
 Build in a trail for past 5 locations?
 
