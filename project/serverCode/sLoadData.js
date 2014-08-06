@@ -19,22 +19,23 @@ var sLoadData;
 
     function BuildMarkerList(empData, jobData, businessData) {
         var markerList = Array();
+        var imgRoute = '/_release/';
 
         $.each(empData, function (i, obj) {
             var list = new MarkerList();
-            list.ID = obj.ID, list.lat = obj.lat, list.lng = obj.lng, list.img = obj.img, list.name = obj.fName + " " + obj.lName, list.add = obj.add, list.phoneNum = obj.phoneNum;
+            list.ID = obj.ID, list.lat = obj.lat, list.lng = obj.lng, list.img = imgRoute + obj.img, list.name = obj.fName + " " + obj.lName, list.add = obj.add, list.phoneNum = obj.phoneNum;
             markerList.push(list);
         });
 
         $.each(jobData, function (i, obj) {
             var list = new MarkerList();
-            list.ID = obj.ID, list.lat = obj.lat, list.lng = obj.lng, list.img = obj.img, list.name = obj.name, list.add = obj.add, list.phoneNum = obj.phoneNum;
+            list.ID = obj.ID, list.lat = obj.lat, list.lng = obj.lng, list.img = imgRoute + obj.img, list.name = obj.name, list.add = obj.add, list.phoneNum = obj.phoneNum;
             markerList.push(list);
         });
 
         $.each(businessData, function (i, obj) {
             var list = new MarkerList();
-            list.ID = obj.ID, list.lat = obj.lat, list.lng = obj.lng, list.img = obj.img, list.name = obj.name, list.add = obj.add, list.phoneNum = obj.phoneNum;
+            list.ID = obj.ID, list.lat = obj.lat, list.lng = obj.lng, list.img = imgRoute + obj.img, list.name = obj.name, list.add = obj.add, list.phoneNum = obj.phoneNum;
             markerList.push(list);
         });
 

@@ -2,22 +2,19 @@ doctype html
 html
 	head
 		title= title
-		script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDIUHVyHjABaBnF2h2yROpJCroqRSzZFXg')
 		script(src='/socket.io/socket.io.js')
+		script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDIUHVyHjABaBnF2h2yROpJCroqRSzZFXg')
 		script(src='//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
-		script(src='/javascripts/mapLegend.js')
-		script(src='/javascripts/mapPolygons.js')
-		script(src='/javascripts/webIO.js')
+		script(src='/_release/cJS.min.js')
 		link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Playfair+Display')
-		link(rel='stylesheet', href='/stylesheets/style.css')
-		link(rel='stylesheet', href='/stylesheets/navBar.css')
+		link(rel='stylesheet', href='/_release/cStyle.min.css')
 	body
 		div(id='header')
-			img(id='imgLogo' src='../images/logo.png')
+			img(id='imgLogo' src='../_release/logo.png')
 			div(id='titleText') <!-- FIELD STATUS TRACKER -->
 		div(id='navBar')
 			a(id='index' href='/') Tracking Map
 			a(id='admin' href='/Admin/Employees') Admin
 		block content
 		div(id='footer')
-			img(id='imgFooter' src='../images/logo_footer.png')
+			img(id='imgFooter' src='../_release/logo_footer.png')

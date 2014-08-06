@@ -16,13 +16,14 @@ module sLoadData {
 	
 	export function BuildMarkerList(empData, jobData, businessData){
 		var markerList = Array<MarkerList>();
+		var imgRoute = '/_release/';
 		
 		$.each(empData, function(i, obj){
 			var list = new MarkerList()
 			list.ID = obj.ID,
 			list.lat = obj.lat,
 			list.lng = obj.lng,
-			list.img = obj.img,
+			list.img = imgRoute + obj.img,
 			list.name = obj.fName + " " + obj.lName,
 			list.add = obj.add,
 			list.phoneNum = obj.phoneNum
@@ -34,7 +35,7 @@ module sLoadData {
 			list.ID = obj.ID,
 			list.lat = obj.lat,
 			list.lng = obj.lng,
-			list.img = obj.img,
+			list.img = imgRoute + obj.img,
 			list.name = obj.name,
 			list.add = obj.add,
 			list.phoneNum = obj.phoneNum
@@ -46,7 +47,7 @@ module sLoadData {
 			list.ID = obj.ID,
 			list.lat = obj.lat,
 			list.lng = obj.lng,
-			list.img = obj.img,
+			list.img = imgRoute + obj.img,
 			list.name = obj.name,
 			list.add = obj.add,
 			list.phoneNum = obj.phoneNum

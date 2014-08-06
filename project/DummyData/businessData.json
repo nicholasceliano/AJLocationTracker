@@ -1,4 +1,4 @@
 [
-{ "ID": "B1", "lat": 40.652632, "lng": -74.282895, "img": "Images/office.png", "name": "AJ", "add": "Address Field", "phoneNum": "1234567890" },
-{ "ID": "B2", "lat": 40.692773, "lng": -74.22739, "img": "Images/WestSide.png", "name": "West Side", "add": "1234 Cental Ave. Hillside, NJ 08732", "phoneNum": "1234567890" }
+{ "ID": "B1", "lat": 40.652632, "lng": -74.282895, "img": "office.png", "name": "AJ", "add": "Address Field", "phoneNum": "1234567890" },
+{ "ID": "B2", "lat": 40.692773, "lng": -74.22739, "img": "WestSide.png", "name": "West Side", "add": "1234 Cental Ave. Hillside, NJ 08732", "phoneNum": "1234567890" }
 ]
