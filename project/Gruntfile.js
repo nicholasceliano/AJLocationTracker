@@ -23,27 +23,27 @@ module.exports = function(grunt) {
 				  'public/_release/cStyle.min.css': ['public/stylesheets/*.css']
 				}	
 			}
-		},
-		imagemin: {                         
-			dynamic: {                        
-				options: {                    
-					optimizationLevel: 7
-				},
-				files: [{
-					expand: true,       
-					cwd: 'public/images/',
-					src: ['**/*.{png,jpg,gif}'],   
-					dest: 'public/_release' 
-				}]
-			}
 		}
+		//,imagemin: {                         
+		//	dynamic: {                        
+		//		options: {                    
+		//			optimizationLevel: 7
+		//		},
+		//		files: [{
+		//			expand: true,       
+		//			cwd: 'public/images/',
+		//			src: ['**/*.{png,jpg,gif}'],   
+		//			dest: 'public/_release' 
+		//		}]
+		//	}
+		//}
 	});
 
 	// Load the plugins
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
-	grunt.loadNpmTasks('grunt-contrib-imagemin');
+	//grunt.loadNpmTasks('grunt-contrib-imagemin');
 
 	// Default task(s).
-	grunt.registerTask('default', ['uglify', 'cssmin', 'imagemin']);
+	grunt.registerTask('default', ['uglify', 'cssmin']);//,'imagemin'
 };
